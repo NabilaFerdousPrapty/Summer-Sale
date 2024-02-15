@@ -34,7 +34,7 @@
       </div>
     </section>
   </header>
-  <main>
+  <main class="relative">
     <section>
       <div class="max-w-full mx-auto grid grid-cols-1 lg:grid-cols-5 gap-5 px-20 bg-slate-50 cursor-pointer">
         <div class="col-span-4">
@@ -214,7 +214,7 @@
                 Total: $<span id="total"></span>
               </p>
               <hr class="my-4" />
-              <button class="btn btn-wide bg-[#F11A7B] text-white">
+              <button id="purchase-button" onclick="" class="btn btn-wide bg-[#F11A7B] text-white">
                 Make Purchase
               </button>
             </div>
@@ -222,9 +222,22 @@
         </div>
       </div>
     </section>
+    <div id="purchase-massage" class="card w-auto absolute top-52 left-96 bg-white shadow-2xl border-blue-400 hover:border-2 hidden">
+      <figure class="px-10 pt-10">
+        <img src="Images/tick 1.png" alt="Shoes" class="rounded-xl" />
+      </figure>
+      <div class="card-body items-center text-center">
+        <h2 class="card-title text-[#111111]">Congratulations</h2>
+        <p class="text-[#11111180]">Your have Purchased the product.This will be delivered to your door step</p>
+        <div class="card-actions">
+          <button id="home" onclick="goHome()" class="btn bg-[#E527B2] text-white border-0">Go Home</button>
+        </div>
+      </div>
+    </div>
   </main>
 
   <script src="./index.js"></script>
+  <script src=""></script>
 </body>
 
 </html>
