@@ -11,11 +11,11 @@ for (let i = 0; i < cards.length; i++) {
     const card = cards[i];
     // console.log(card);
     card.addEventListener('click',function () {
-        // console.log('clicked');
+       
         const title=card.querySelector('h3').innerText;
-        // console.log(title.innerText);
+       
         const price=parseFloat(card.querySelector('span').innerText.split(' ')[1]);
-        // console.log(price.innerText);
+       
 
         const titleContainer=document.getElementById('title-container');
         const p=document.createElement('p');
@@ -23,9 +23,36 @@ for (let i = 0; i < cards.length; i++) {
         titleContainer.appendChild(p);
         titleCount++;
         totalPrice=totalPrice+price;
-        const cartPrice=document.getElementById('totalPrice');
-        cartPrice.innerText=totalPrice.toFixed(2);
+        document.getElementById('totalPrice').innerText=totalPrice.toFixed(2)
         
     })
     
 }
+
+const btn=document.getElementById('apply-btn');
+btn.addEventListener('click',function () {
+    const inputFieldElement=document.getElementById('input-field');
+    const inputFieldText=inputFieldElement.value ;
+    const inputField=inputFieldText.split(" ").join("").toUpperCase();
+    // console.log(inputFieldText);
+    if (totalPrice >= 200) {
+       if (inputField==='SALE20') {
+        const discountPriceElement=document.getElementById('discountPrice');
+        // totalPrice=totalPrice-.2*totalPrice;
+         const discountAmount=.2*totalPrice;
+         discountPriceElement.innerText=discountAmount.toFixed(2);
+         const restTotal=document.getElementById('total');
+         restTotal.innerText=totalPrice-discountAmount;
+         inputFieldElement.value=" ";
+       }else{
+        alert('Invalid coupon code');
+        inputFieldElement.value=" ";
+       }
+    } else {
+        alert("Please spend more than $200 to apply the coupon");
+        inputFieldElement.value=" ";
+    }
+    
+    
+    
+});
