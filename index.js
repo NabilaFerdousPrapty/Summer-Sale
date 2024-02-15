@@ -59,6 +59,9 @@ btn.addEventListener("click", function () {
   function goHome() {
     const purchaseMessage = document.getElementById("purchase-massage");
     purchaseMessage.classList.add("hidden");
+   
+    startOver()
+
   }
 
 const purchaseButton = document.getElementById("purchase-button");
@@ -69,3 +72,12 @@ purchaseButton.addEventListener('click',function () {
     }
     
 })
+function startOver() {
+    titleCount = 1;
+    totalPrice = 0;
+    const titleContainer = document.getElementById("title-container");
+    titleContainer.innerHTML = "";
+    document.getElementById("totalPrice").innerText = "0.00";
+    document.getElementById("discountPrice").innerText = "0.00";
+    document.getElementById("total").innerText = "0.00";
+}
